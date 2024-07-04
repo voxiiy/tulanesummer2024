@@ -1,19 +1,32 @@
+let housekey
+
+let housekeyBrushBool = false
+let ellipseBrushBool = false
+
+function preload (){
+     housekey = loadImage('housekey.png')
+}
+
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
+
+  imageMode (CENTER)
   background(111, 183, 209);
 
-  if(mouseX > 450 && mouseY > 30){
+ 
+  if(mouseX > 750 && mouseY > 30){
     background (24, 29, 74)
   }else{
   background (111, 183, 209)
   }
 
+
     
   fill (26, 64, 10)
-  rect(0,375,850,650)
+  rect(0,375,3050,650)
   fill (230, 225, 209)
   rect (70,195,200,180)
   fill (82, 2, 22)
@@ -53,4 +66,31 @@ line (410,320,418,320)
   fill (255,255,255)
   rect (405,280,18,13)
 
+}
+
+function housekeyBrush (){
+  image(housekey, mouseX,mouseY,50,50)
+
+}
+
+
+function ellipseBrush (){
+     fill (random(255), random (255), random (255))
+     ellipse(mouseX, mouseY,50,50)
+}
+
+
+function keyPressed (){
+       if (key === 'q'){
+            housekeyBrushBool = true
+            ellipseBrushBool = false
+       }
+       
+       if (key === 'w'){
+            housekeyBrushBool = false
+            ellipseBrushBool = true
+       }
+}
+function windowResized (){
+    resizeCanvas(windowWidth,windowHeight)
 }
