@@ -9,22 +9,10 @@ function preload (){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-}
-
-function draw() {
-
   imageMode (CENTER)
-  background(111, 183, 209);
-
- 
-  if(mouseX > 750 && mouseY > 30){
-    background (24, 29, 74)
-  }else{
-  background (111, 183, 209)
-  }
+  background (111, 183, 209);
 
 
-    
   fill (26, 64, 10)
   rect(0,375,3050,650)
   fill (230, 225, 209)
@@ -52,19 +40,25 @@ function draw() {
   fill (255, 255, 0)
   rect (600,30,80,80,80)
 
-  
   fill (69, 36, 7)
-line (410,320,418,320)
+  line (410,320,418,320)
   
   line (560,70,480,70)
   line(580,130,530,170)
   line (640,130,640,200)
   
   fill (255,255,255)
- rect (402,292,25,6)
+  rect (402,292,25,6)
   
   fill (255,255,255)
   rect (405,280,18,13)
+
+}
+
+function draw() {
+     if(housekeyBrushBool == true){
+         housekeyBrush()
+    }
 
 }
 
@@ -91,6 +85,10 @@ function keyPressed (){
             ellipseBrushBool = true
        }
 }
+
 function windowResized (){
     resizeCanvas(windowWidth,windowHeight)
 }
+  
+
+
